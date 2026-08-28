@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0D8B6F">
+<title>Dayjoy - Check the words</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Telugu:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Sans+Oriya:wght@400;600&family=Noto+Sans+Bengali:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&display=swap">
+<link rel="stylesheet" href="/app.css">
+<style>
+  .term-card { display:flex; flex-direction:column; gap:14px; }
+  .term-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; }
+  .term-en { font-size:1.3rem; font-weight:800; letter-spacing:-.02em; }
+  .term-kind { font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em;
+               text-transform:uppercase; color:var(--ink-3); border:1px solid var(--line);
+               background:var(--surface-2); padding:3px 7px; border-radius:5px; }
+  .spelling { font-size:2rem; font-weight:600; line-height:1.45; word-break:break-word; }
+  .spelling.empty { font-size:1rem; font-weight:400; color:var(--red); }
+  .askrow { display:flex; flex-wrap:wrap; gap:8px; }
+  .askrow .btn { flex:1; min-width:150px; }
+  .fixbox { display:flex; flex-direction:column; gap:8px; }
+  .fixbox input { font-size:1.25rem; padding:12px 14px; }
+  .progressbar { height:7px; background:var(--surface-2); border-radius:4px;
+                 overflow:hidden; border:1px solid var(--line); }
+  .progressbar div { height:100%; background:var(--green); width:0%; transition:width .3s; }
+  .done-state { display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+                font-size:.9rem; color:var(--ink-3); }
+  .stepper { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .big { font-size:1.05rem; }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner">
+    <span class="brand"><span class="dot"></span>Dayjoy</span>
+    <span class="spacer"></span>
+    <span class="badge" id="langBadge">-</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ---------- start ---------- -->
+  <section id="startPane">
+    <div class="card">
+      <h1>Help us say Dayjoy words correctly</h1>
+      <p class="big">Our trainings are translated automatically so distributors can listen in their own language. A computer voice reads the words out.</p>
+      <p class="big">We have written our product names in your language, but we guessed. <b>You are checking whether each one looks right and sounds right.</b></p>
+      <p class="muted">About 12 words. Roughly 10 minutes. You can stop and come back — nothing is lost.</p>
+    </div>
+
+    <div class="card">
+      <span class="label">Your name</span>
+      <input type="text" id="reviewerName" placeholder="So we know who checked these" autocomplete="name">
+      <span class="label">Language you are checking</span>
+      <div class="langgrid" id="langPick"></div>
+      <button class="btn block" id="beginBtn" disabled>Start checking</button>
+      <p class="muted" id="startError" style="color:var(--red)"></p>
+    </div>
+  </section>
+
+  <!-- ---------- review ---------- -->
+  <section id="reviewPane" class="hidden">
+    <div class="card">
+      <div class="stepper">
+        <span class="label" id="counter">Word 1 of 12</span>
+        <button class="btn ghost" id="skipBtn" style="padding:6px 12px;font-size:.85rem">Skip for now</button>
+      </div>
+      <div class="progressbar"><div id="progressFill"></div></div>
+    </div>
+
+    <div class="card term-card" id="termCard">
+      <div class="term-head">
+        <span class="term-en" id="termEn">—</span>
+        <span class="term-kind" id="termKind"></span>
+      </div>
+      <p class="muted" id="termHelp"></p>
+
+      <div>
+        <span class="label">We wrote it like this</span>
+        <div class="spelling" id="spelling" lang="te">—</div>
+      </div>
+
+      <button class="btn ghost block" id="hearBtn">▶ Hear how the voice says it</button>
+      <p class="muted" id="hearNote"></p>
+
+      <div class="askrow">
+        <button class="btn" id="okBtn">Yes, this is right</button>
+        <button class="btn orange" id="fixBtn">No, needs fixing</button>
+      </div>
+
+      <div class="fixbox hidden" id="fixBox">
+        <span class="label">Please write it correctly</span>
+        <input type="text" id="fixInput" lang="te" placeholder="Type the correct spelling">
+        <button class="btn ghost block" id="hearFixBtn">▶ Hear my version</button>
+        <input type="text" id="noteInput" placeholder="Anything we should know? (optional)">
+        <button class="btn block" id="saveFixBtn">Save my correction</button>
+      </div>
+
+      <div class="done-state" id="doneState"></div>
+    </div>
+
+    <div class="card">
+      <div class="stepper">
+        <button class="btn ghost" id="prevBtn">← Previous</button>
+        <button class="btn ghost" id="nextBtn">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- finished ---------- -->
+  <section id="donePane" class="hidden">
+    <div class="card">
+      <h1>All done — thank you</h1>
+      <p class="big" id="doneSummary"></p>
+      <p class="muted">Your corrections are saved. The trainings will use them from the next session onward.</p>
+      <button class="btn ghost block" id="againBtn">Go back and change something</button>
+    </div>
+  </section>
+
+</main>
+
+<script src="/review.js" type="module"></script>
+</body>
+</html>

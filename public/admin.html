@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0D8B6F">
+<title>Dayjoy Training - Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner wide">
+    <span class="brand"><span class="dot"></span>Training Admin</span>
+    <span class="spacer"></span>
+    <span class="badge" id="liveBadge">Offline</span>
+  </div>
+</header>
+
+<main class="wrap wide">
+
+  <div class="card">
+    <span class="label">Acceptance metrics</span>
+    <div class="meters">
+      <div class="meter"><span class="v" id="mMedian">-</span><span class="k">Median delay<br>target &le; 5.0 s</span></div>
+      <div class="meter"><span class="v" id="mP95">-</span><span class="k">95th percentile</span></div>
+      <div class="meter"><span class="v" id="mDrift">-</span><span class="k">Worst drift<br>target &le; 2.0 s</span></div>
+      <div class="meter"><span class="v" id="mListeners">0</span><span class="k">Listening</span></div>
+      <div class="meter"><span class="v" id="mFlagged">0</span><span class="k">Flagged</span></div>
+      <div class="meter"><span class="v" id="mWithheld">0</span><span class="k">Withheld</span></div>
+    </div>
+    <p class="muted" id="acceptNote">Delay is measured from the end of the trainer's sentence to the moment a listener's device is handed the audio.</p>
+  </div>
+
+  <div class="card">
+    <span class="label">Channels</span>
+    <div style="overflow-x:auto">
+      <table class="data" id="chTable">
+        <thead>
+          <tr>
+            <th>Language</th><th class="num">Listening</th><th class="num">Spoken</th>
+            <th class="num">Behind</th><th class="num">Peak behind</th><th class="num">Rate</th>
+            <th class="num">Retries</th><th class="num">Flagged</th><th class="num">Dropped</th><th class="num">Errors</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <span class="label">Running cost, this session</span>
+      <table class="data" id="costTable"><tbody></tbody></table>
+      <p class="muted">Indicative only, at published list prices. Bandwidth is the sole line that grows with audience size.</p>
+    </div>
+
+    <div class="card">
+      <span class="label">Glossary</span>
+      <p id="glossaryLine" class="muted">Loading…</p>
+      <div class="chips" id="unreviewedChips"></div>
+      <p class="muted">Every starter spelling needs a native speaker to sign it off before a real training. An unreviewed term still works - it is simply not yet trusted.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="label">Incidents</span>
+    <div class="rows" id="incidents"><p class="muted">Nothing withheld or retried yet.</p></div>
+  </div>
+
+</main>
+
+<script src="/admin.js" type="module"></script>
+</body>
+</html>

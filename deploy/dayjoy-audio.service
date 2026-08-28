@@ -1,0 +1,55 @@
+# /etc/systemd/system/dayjoy-audio.service
+#
+#   sudo cp deploy/dayjoy-audio.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now dayjoy-audio
+#   sudo journalctl -u dayjoy-audio -f
+
+[Unit]
+Description=Dayjoy multilingual training audio
+Documentation=https://listen.dayjoy.in
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=dayjoy
+Group=dayjoy
+WorkingDirectory=/opt/dayjoy-audio
+
+# Keys live here, not in the unit file - this stays 0600 and owned by dayjoy.
+EnvironmentFile=/opt/dayjoy-audio/.env
+ExecStart=/usr/bin/node src/server.js
+
+Restart=always
+RestartSec=3
+
+# A training must not die because one segment threw.
+StartLimitIntervalSec=0
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=dayjoy-audio
+
+# ---- hardening ----
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=false
+
+# The only path the service may write to is the recording archive.
+ReadWritePaths=/opt/dayjoy-audio/data
+
+# An hour of seven-channel audio is small, but a runaway loop should not take
+# the box down with it.
+MemoryMax=1G
+
+[Install]
+WantedBy=multi-user.target

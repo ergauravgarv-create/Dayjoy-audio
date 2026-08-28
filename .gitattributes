@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# This repo is developed on Windows and deployed to Linux. Store everything with
+# LF so the systemd unit and nginx config are not shipped with CRLF endings.
+* text=auto eol=lf
+*.png binary
+*.mp3 binary
+*.wav binary

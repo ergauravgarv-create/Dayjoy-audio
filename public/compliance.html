@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0D8B6F">
+<title>Dayjoy - Claim sign-off</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Telugu&family=Noto+Sans+Kannada&family=Noto+Sans+Oriya&family=Noto+Sans+Bengali&family=Noto+Sans+Tamil&display=swap">
+<link rel="stylesheet" href="/app.css">
+<style>
+  .claim-source { font-size:1.25rem; font-weight:700; line-height:1.45; }
+  .pane { border:1px solid var(--line); border-radius:10px; padding:12px 14px;
+          background:var(--bg); display:flex; flex-direction:column; gap:5px; }
+  .pane .cap { font-family:"IBM Plex Mono",monospace; font-size:.64rem; letter-spacing:.12em;
+               text-transform:uppercase; color:var(--ink-3); background:none; border:0; padding:0; }
+  .pane .val { font-size:1.08rem; line-height:1.55; }
+  .pane.back { border-left:3px solid var(--orange); }
+  .pane.back .cap { color:var(--orange); }
+  .compare { display:grid; gap:10px; }
+  .askrow { display:flex; flex-wrap:wrap; gap:8px; }
+  .askrow .btn { flex:1; min-width:150px; }
+  .masterbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+  .warnline { font-size:.86rem; color:var(--amber); line-height:1.45; }
+  .rejected { color:var(--red); font-weight:700; }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner">
+    <span class="brand"><span class="dot"></span>Claim sign-off</span>
+    <span class="spacer"></span>
+    <span class="badge" id="langBadge">-</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="startPane">
+    <div class="card">
+      <h1>Regulatory sign-off on translated claims</h1>
+      <p>Dayjoy trainings are translated automatically and read aloud by a synthetic voice. Translation is where a careful claim can quietly become a stronger one.</p>
+      <p><b>You are deciding two things.</b> First, whether each claim may be made at all. Second, whether each translation is still that same claim and no stronger.</p>
+      <p class="muted">You do not need to read the language. Each translation is shown back to you in literal English.</p>
+    </div>
+
+    <div class="card">
+      <span class="label">Your name</span>
+      <input type="text" id="reviewerName" placeholder="Recorded against every decision" autocomplete="name">
+      <span class="label">Language you are signing off</span>
+      <div class="langgrid" id="langPick"></div>
+      <button class="btn block" id="beginBtn" disabled>Start</button>
+      <p class="muted" id="startError" style="color:var(--red)"></p>
+    </div>
+  </section>
+
+  <section id="workPane" class="hidden">
+    <div class="card">
+      <span class="label" id="counter">Claim 1 of 2</span>
+      <div class="progressbar" style="height:7px;background:var(--surface-2);border-radius:4px;overflow:hidden;border:1px solid var(--line)">
+        <div id="progressFill" style="height:100%;width:0%;background:var(--green);transition:width .3s"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="label">Step 1 &mdash; may this claim be made at all?</span>
+      <p class="claim-source" id="claimSource">&mdash;</p>
+      <div class="masterbar" id="masterState"></div>
+      <div id="masterActions" class="askrow">
+        <button class="btn" id="masterOk">Permissible</button>
+        <button class="btn danger" id="masterNo">Not permissible</button>
+      </div>
+      <input type="text" id="basisInput" placeholder="Basis for the decision, e.g. FSSAI Schedule VIII nutrient function claim">
+    </div>
+
+    <div class="card" id="langCard">
+      <span class="label">Step 2 &mdash; is the translation still that same claim?</span>
+      <div class="compare">
+        <div class="pane">
+          <span class="cap">Approved English</span>
+          <span class="val" id="paneSource">&mdash;</span>
+        </div>
+        <div class="pane">
+          <span class="cap" id="paneTargetCap">Translation</span>
+          <span class="val" id="paneTarget" lang="te">&mdash;</span>
+        </div>
+        <div class="pane back">
+          <span class="cap">Translated back to English, literally</span>
+          <span class="val" id="paneBack">Press the button below.</span>
+          <span class="warnline" id="backNote"></span>
+        </div>
+      </div>
+
+      <button class="btn ghost block" id="backBtn">Show me this in English</button>
+
+      <p class="muted">Compare the first and last panes. If the meaning has grown stronger &mdash; curing, treating, preventing disease, or a promise the English does not make &mdash; reject it.</p>
+
+      <p class="warnline" id="approveGate"></p>
+      <div class="askrow">
+        <button class="btn" id="langOk" disabled>Approve this wording</button>
+        <button class="btn danger" id="langNo" disabled>Reject this wording</button>
+      </div>
+      <input type="text" id="noteInput" placeholder="Note (optional, kept in the audit record)">
+      <div class="done-state" id="doneState" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:.9rem;color:var(--ink-3)"></div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:10px">
+        <button class="btn ghost" id="prevBtn">&larr; Previous</button>
+        <button class="btn ghost" id="nextBtn">Next &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="donePane" class="hidden">
+    <div class="card">
+      <h1>Sign-off complete</h1>
+      <p id="doneSummary"></p>
+      <p class="muted">Claims you rejected will not be spoken in this language. The trainer is told on screen so they can make the point in their own words instead.</p>
+      <button class="btn ghost block" id="againBtn">Go back</button>
+    </div>
+  </section>
+
+</main>
+
+<script src="/compliance.js" type="module"></script>
+</body>
+</html>

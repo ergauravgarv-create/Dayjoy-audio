@@ -1,0 +1,499 @@
+{
+  "version": "0.1.0-starter",
+  "owner": "TO BE ASSIGNED - product head owns terminology, regulatory reviewer approves claims",
+  "_readme": [
+    "Every 'say' spelling below is a STARTER transliteration produced during the build.",
+    "Each one must be checked by a native speaker and flipped to reviewed:true before a real training.",
+    "An unreviewed spelling still works - it is simply not yet trusted, and the admin page counts them."
+  ],
+  "policies": {
+    "keep": "Never translate. The approved native-script spelling in 'say' is substituted into the output so the voice engine pronounces it correctly.",
+    "render": "Always translate to exactly the wording in 'translations' - never a synonym the model picked that day.",
+    "flag": "Not substituted. Presence in a segment raises a review flag on the transcript for later audit."
+  },
+  "terms": [
+    {
+      "term": "Dayjoy",
+      "policy": "keep",
+      "aliases": [
+        "day joy",
+        "डेजॉय",
+        "दे जॉय"
+      ],
+      "reviewed": false,
+      "say": {
+        "en": "Dayjoy",
+        "te": "డేజాయ్",
+        "kn": "ಡೇಜಾಯ್",
+        "or": "ଡେଜୟ",
+        "bn": "ডেজয়",
+        "ta": "டேஜாய்"
+      }
+    },
+    {
+      "term": "Curind",
+      "policy": "keep",
+      "aliases": [
+        "क्यूरिंड",
+        "cure ind",
+        "curind"
+      ],
+      "reviewed": false,
+      "say": {
+        "en": "Curind",
+        "te": "క్యూరిండ్",
+        "kn": "ಕ್ಯೂರಿಂಡ್",
+        "or": "କ୍ୟୁରିଣ୍ଡ",
+        "bn": "কিউরিন্ড",
+        "ta": "க்யூரிண்ட்"
+      }
+    },
+    {
+      "term": "Super Richberries",
+      "policy": "keep",
+      "aliases": [
+        "super rich berries",
+        "super richberry",
+        "सुपर रिचबेरीज",
+        "सुपर रिच बेरीज"
+      ],
+      "reviewed": false,
+      "say": {
+        "en": "Super Richberries",
+        "te": "సూపర్ రిచ్‌బెర్రీస్",
+        "kn": "ಸೂಪರ್ ರಿಚ್‌ಬೆರ್ರೀಸ್",
+        "or": "ସୁପର ରିଚବେରୀଜ",
+        "bn": "সুপার রিচবেরিজ",
+        "ta": "சூப்பர் ரிச்பெர்ரீஸ்"
+      }
+    },
+    {
+      "term": "Sea Buckthorn",
+      "policy": "keep",
+      "aliases": [
+        "seabuckthorn",
+        "sea buck thorn",
+        "सी बकथॉर्न"
+      ],
+      "reviewed": false,
+      "say": {
+        "en": "Sea Buckthorn",
+        "te": "సీ బక్‌థార్న్",
+        "kn": "ಸೀ ಬಕ್‌ಥಾರ್ನ್",
+        "or": "ସୀ ବକଥର୍ନ",
+        "bn": "সি বাকথর্ন",
+        "ta": "சீ பக்தார்ன்"
+      }
+    },
+    {
+      "term": "ORAC",
+      "policy": "keep",
+      "aliases": [
+        "o r a c",
+        "ओरैक"
+      ],
+      "reviewed": false,
+      "say": {
+        "en": "ORAC",
+        "te": "ఓరాక్",
+        "kn": "ಓರಾಕ್",
+        "or": "ଓରାକ",
+        "bn": "ওরাক",
+        "ta": "ஓராக்"
+      }
+    },
+    {
+      "term": "BV",
+      "policy": "keep",
+      "aliases": [
+        "b v",
+        "बीवी",
+        "business volume"
+      ],
+      "reviewed": false,
+      "say": {
+        "en": "BV",
+        "te": "బీవీ",
+        "kn": "ಬಿವಿ",
+        "or": "ବିଭି",
+        "bn": "বিভি",
+        "ta": "பிவி"
+      }
+    },
+    {
+      "term": "Fit90",
+      "policy": "keep",
+      "aliases": [
+        "fit 90",
+        "फिट नब्बे",
+        "फिट 90"
+      ],
+      "reviewed": false,
+      "say": {
+        "en": "Fit 90",
+        "te": "ఫిట్ నైంటీ",
+        "kn": "ಫಿಟ್ ನೈಂಟಿ",
+        "or": "ଫିଟ ନାଇଣ୍ଟି",
+        "bn": "ফিট নাইন্টি",
+        "ta": "ஃபிட் நைண்டி"
+      }
+    },
+    {
+      "term": "antioxidant",
+      "policy": "render",
+      "aliases": [
+        "antioxidants",
+        "एंटीऑक्सीडेंट"
+      ],
+      "reviewed": false,
+      "translations": {
+        "en": "antioxidant",
+        "te": "యాంటీఆక్సిడెంట్",
+        "kn": "ಆಂಟಿಆಕ್ಸಿಡೆಂಟ್",
+        "or": "ଆଣ୍ଟିଅକ୍ସିଡାଣ୍ଟ",
+        "bn": "অ্যান্টিঅক্সিডেন্ট",
+        "ta": "ஆன்டிஆக்ஸிடன்ட்"
+      }
+    },
+    {
+      "term": "distributor",
+      "policy": "render",
+      "aliases": [
+        "distributors",
+        "डिस्ट्रीब्यूटर",
+        "वितरक"
+      ],
+      "reviewed": false,
+      "translations": {
+        "en": "distributor",
+        "te": "డిస్ట్రిబ్యూటర్",
+        "kn": "ಡಿಸ್ಟ್ರಿಬ್ಯೂಟರ್",
+        "or": "ଡିଷ୍ଟ୍ରିବ୍ୟୁଟର",
+        "bn": "ডিস্ট্রিবিউটর",
+        "ta": "டிஸ்ட்ரிபியூட்டர்"
+      }
+    },
+    {
+      "term": "dosage",
+      "policy": "render",
+      "aliases": [
+        "dose",
+        "खुराक",
+        "डोज़"
+      ],
+      "reviewed": false,
+      "translations": {
+        "en": "dosage",
+        "te": "మోతాదు",
+        "kn": "ಪ್ರಮಾಣ",
+        "or": "ମାତ୍ରା",
+        "bn": "মাত্রা",
+        "ta": "அளவு"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "source": "supports cellular protection",
+      "aliases": [
+        "सेल्युलर प्रोटेक्शन को सपोर्ट करता है",
+        "cellular protection ko support karta hai"
+      ],
+      "reviewed": false,
+      "approved": {
+        "en": "supports cellular protection",
+        "te": "కణాల రక్షణకు తోడ్పడుతుంది",
+        "kn": "ಜೀವಕೋಶಗಳ ರಕ್ಷಣೆಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ",
+        "or": "କୋଷ ସୁରକ୍ଷାରେ ସହାୟକ ହୁଏ",
+        "bn": "কোষের সুরক্ষায় সহায়তা করে",
+        "ta": "செல் பாதுகாப்பிற்கு உதவுகிறது"
+      }
+    },
+    {
+      "source": "helps maintain general wellness",
+      "aliases": [
+        "सामान्य सेहत बनाए रखने में मदद करता है"
+      ],
+      "reviewed": false,
+      "approved": {
+        "en": "helps maintain general wellness",
+        "te": "సాధారణ ఆరోగ్యాన్ని కాపాడుకోవడంలో సహాయపడుతుంది",
+        "kn": "ಸಾಮಾನ್ಯ ಆರೋಗ್ಯ ಕಾಪಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ",
+        "or": "ସାଧାରଣ ସୁସ୍ଥତା ବଜାୟ ରଖିବାରେ ସାହାଯ୍ୟ କରେ",
+        "bn": "সাধারণ সুস্থতা বজায় রাখতে সাহায্য করে",
+        "ta": "பொது நலனைப் பேண உதவுகிறது"
+      }
+    },
+    {
+      "source": "rich in antioxidants",
+      "aliases": [
+        "powerful antioxidant",
+        "powerful antioxidant rich",
+        "strong antioxidant",
+        "antioxidant rich",
+        "शक्तिशाली एंटीऑक्सीडेंट",
+        "powerful antioxidant hai"
+      ],
+      "reviewed": false,
+      "note": "The intensifier is what turns a nutrient descriptor into a claim. \"Antioxidant\" alone is vocabulary; \"powerful antioxidant\" is a claim.",
+      "approved": {
+        "en": "rich in antioxidants",
+        "te": "యాంటీఆక్సిడెంట్లు అధికంగా ఉంటాయి",
+        "kn": "ಆಂಟಿಆಕ್ಸಿಡೆಂಟ್‌ಗಳಿಂದ ಸಮೃದ್ಧವಾಗಿದೆ",
+        "or": "ଆଣ୍ଟିଅକ୍ସିଡାଣ୍ଟରେ ଭରପୂର",
+        "bn": "অ্যান্টিঅক্সিডেন্ট সমৃদ্ধ",
+        "ta": "ஆன்டிஆக்ஸிடன்ட் நிறைந்தது"
+      }
+    },
+    {
+      "source": "has a high ORAC value",
+      "aliases": [
+        "high ORAC",
+        "ORAC value bahut high",
+        "ORAC value high hai",
+        "उच्च ओरैक"
+      ],
+      "reviewed": false,
+      "note": "A nutrient content claim. \"High in\" is a regulated comparative under FSSAI and needs the threshold evidence on file.",
+      "approved": {
+        "en": "has a high ORAC value",
+        "te": "అధిక ఓరాక్ విలువ కలిగి ఉంటుంది",
+        "kn": "ಹೆಚ್ಚಿನ ಓರಾಕ್ ಮೌಲ್ಯ ಹೊಂದಿದೆ",
+        "or": "ଉଚ୍ଚ ଓରାକ ମୂଲ୍ୟ ରହିଛି",
+        "bn": "উচ্চ ওরাক মান রয়েছে",
+        "ta": "அதிக ஓராக் மதிப்பு கொண்டது"
+      }
+    },
+    {
+      "source": "may be used together with other Dayjoy products",
+      "aliases": [
+        "results are better when combined",
+        "combine karne par results aur behtar",
+        "results aur behtar hote hain",
+        "saath combine karne par",
+        "बेहतर परिणाम"
+      ],
+      "reviewed": false,
+      "note": "Highest-risk line in the training script. \"Results are better when combined\" promises enhanced efficacy from a combination, which needs evidence per combination. The approved wording drops the promise and keeps only the permission to use them together.",
+      "approved": {
+        "en": "may be used together with other Dayjoy products",
+        "te": "ఇతర డేజాయ్ ఉత్పత్తులతో కలిపి ఉపయోగించవచ్చు",
+        "kn": "ಇತರ ಡೇಜಾಯ್ ಉತ್ಪನ್ನಗಳೊಂದಿಗೆ ಬಳಸಬಹುದು",
+        "or": "ଅନ୍ୟ ଡେଜୟ ଉତ୍ପାଦ ସହିତ ବ୍ୟବହାର କରାଯାଇପାରେ",
+        "bn": "অন্যান্য ডেজয় পণ্যের সাথে ব্যবহার করা যেতে পারে",
+        "ta": "மற்ற டேஜாய் தயாரிப்புகளுடன் பயன்படுத்தலாம்"
+      }
+    }
+  ],
+  "forbiddenClaimTerms": {
+    "_note": "Two jobs. In a TRANSLATION, a term here with no counterpart in the source means the model strengthened a claim - that is drift. In the SOURCE (hi/en), it means the trainer said something that needs checking, which the drift guard alone would never catch.",
+    "_sourceLangs": [
+      "hi",
+      "en"
+    ],
+    "hi": [
+      "theek karta hai",
+      "theek ho jata",
+      "thik karta hai",
+      "ठीक करता है",
+      "ठीक हो जाता",
+      "ilaj",
+      "इलाज",
+      "dawa hai",
+      "दवा है",
+      "davai",
+      "दवाई",
+      "bimari door",
+      "बीमारी दूर",
+      "rog door",
+      "रोग दूर",
+      "bimari khatam",
+      "बीमारी खत्म",
+      "immunity booster",
+      "इम्यूनिटी बूस्टर",
+      "rog pratirodhak",
+      "रोग प्रतिरोधक",
+      "side effect nahi",
+      "साइड इफेक्ट नहीं",
+      "koi nuksan nahi",
+      "कोई नुकसान नहीं",
+      "100% safe",
+      "100% सुरक्षित",
+      "poori tarah surakshit",
+      "पूरी तरह सुरक्षित",
+      "guarantee",
+      "गारंटी",
+      "guaranteed result",
+      "pakka result",
+      "chamatkar",
+      "चमत्कार",
+      "chamatkari",
+      "चमत्कारी",
+      "doctor ki tarah",
+      "डॉक्टर द्वारा",
+      "clinically proven",
+      "क्लिनिकली प्रूवन",
+      "detox",
+      "डिटॉक्स",
+      "sharir se toxin",
+      "शरीर से विषाक्त",
+      "jhurriyan",
+      "झुर्रियां",
+      "umar kam",
+      "उम्र कम"
+    ],
+    "en": [
+      "cure",
+      "cures",
+      "cured",
+      "curing",
+      "treat",
+      "treats",
+      "treatment for",
+      "therapy for",
+      "prevents disease",
+      "prevent disease",
+      "protects against",
+      "protects from",
+      "heals",
+      "healing",
+      "repairs",
+      "reverses",
+      "reverse",
+      "medicine for",
+      "remedy for",
+      "drug for",
+      "immunity booster",
+      "boosts immunity",
+      "boost immunity",
+      "immune booster",
+      "detox",
+      "detoxifies",
+      "detoxification",
+      "removes toxins",
+      "flushes out toxins",
+      "anti-ageing",
+      "anti-aging",
+      "reverses ageing",
+      "no side effects",
+      "zero side effects",
+      "completely safe",
+      "100% safe",
+      "100 percent safe",
+      "guaranteed",
+      "guaranteed results",
+      "proven to cure",
+      "clinically proven",
+      "doctor recommended",
+      "doctors recommend",
+      "medically proven",
+      "miracle",
+      "miraculous",
+      "magic",
+      "wonder drug",
+      "kills bacteria",
+      "kills virus",
+      "fights disease",
+      "fights infection"
+    ],
+    "te": [
+      "నయం",
+      "చికిత్స",
+      "వ్యాధిని నివారిస్తుంది",
+      "మందు",
+      "రోగనిరోధక శక్తిని పెంచుతుంది",
+      "దుష్ప్రభావాలు లేవు",
+      "హామీ"
+    ],
+    "kn": [
+      "ಗುಣಪಡಿಸು",
+      "ಚಿಕಿತ್ಸೆ",
+      "ರೋಗವನ್ನು ತಡೆಯುತ್ತದೆ",
+      "ಔಷಧ",
+      "ರೋಗನಿರೋಧಕ ಶಕ್ತಿ ಹೆಚ್ಚಿಸುತ್ತದೆ",
+      "ಅಡ್ಡಪರಿಣಾಮಗಳಿಲ್ಲ",
+      "ಖಾತರಿ"
+    ],
+    "or": [
+      "ଆରୋଗ୍ୟ କରେ",
+      "ଚିକିତ୍ସା",
+      "ରୋଗ ପ୍ରତିରୋଧ କରେ",
+      "ଔଷଧ",
+      "ରୋଗ ପ୍ରତିରୋଧକ ଶକ୍ତି ବଢାଏ",
+      "ପାର୍ଶ୍ୱ ପ୍ରତିକ୍ରିୟା ନାହିଁ",
+      "ଗ୍ୟାରେଣ୍ଟି"
+    ],
+    "bn": [
+      "নিরাময়",
+      "চিকিৎসা",
+      "রোগ প্রতিরোধ করে",
+      "ওষুধ",
+      "রোগ প্রতিরোধ ক্ষমতা বাড়ায়",
+      "কোনো পার্শ্বপ্রতিক্রিয়া নেই",
+      "গ্যারান্টি"
+    ],
+    "ta": [
+      "குணப்படுத்து",
+      "சிகிச்சை",
+      "நோயைத் தடுக்கிறது",
+      "மருந்து",
+      "நோய் எதிர்ப்பு சக்தியை அதிகரிக்கிறது",
+      "பக்க விளைவுகள் இல்லை",
+      "உத்தரவாதம்"
+    ]
+  },
+  "restrictedConditions": {
+    "_note": "Mentioning any of these alongside a product is what the Drugs and Magic Remedies Act restricts. Flagged for review whenever they appear in the source - never blocked, because \"this does not treat diabetes\" is a legitimate sentence.",
+    "terms": [
+      "diabetes",
+      "मधुमेह",
+      "sugar ki bimari",
+      "शुगर",
+      "cancer",
+      "कैंसर",
+      "tumour",
+      "tumor",
+      "blood pressure",
+      "रक्तचाप",
+      "bp",
+      "hypertension",
+      "heart disease",
+      "हृदय रोग",
+      "heart attack",
+      "दिल का दौरा",
+      "arthritis",
+      "गठिया",
+      "joint pain",
+      "जोड़ों का दर्द",
+      "asthma",
+      "दमा",
+      "अस्थमा",
+      "obesity",
+      "मोटापा",
+      "infertility",
+      "बांझपन",
+      "napunsakta",
+      "नपुंसकता",
+      "thyroid",
+      "थायराइड",
+      "kidney",
+      "गुर्दा",
+      "liver",
+      "यकृत",
+      "piles",
+      "बवासीर",
+      "epilepsy",
+      "मिर्गी",
+      "paralysis",
+      "लकवा",
+      "tuberculosis",
+      "टीबी",
+      "aids",
+      "एड्स",
+      "depression",
+      "अवसाद",
+      "cholesterol",
+      "कोलेस्ट्रॉल"
+    ]
+  }
+}

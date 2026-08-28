@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0D8B6F">
+<title>Dayjoy Training - Listen in your language</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Telugu&family=Noto+Sans+Kannada&family=Noto+Sans+Oriya&family=Noto+Sans+Bengali&family=Noto+Sans+Tamil&family=Noto+Sans+Devanagari&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner">
+    <span class="brand"><span class="dot"></span>Dayjoy Training</span>
+    <span class="spacer"></span>
+    <span class="badge" id="liveBadge">Offline</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tabLive" aria-selected="true" aria-controls="paneLive">Live now</button>
+    <button role="tab" id="tabRec" aria-selected="false" aria-controls="paneRec">Past trainings</button>
+  </div>
+
+  <!-- ================= LIVE ================= -->
+  <section id="paneLive" role="tabpanel" aria-labelledby="tabLive">
+
+    <div class="card">
+      <div>
+        <h1 id="sessionTitle">No training running right now</h1>
+        <p class="muted" id="sessionMeta">When a training starts, choose your language below and put your earphones in.</p>
+      </div>
+
+      <div>
+        <span class="label">Listen in</span>
+        <div class="langgrid" id="langGrid" style="margin-top:8px"></div>
+      </div>
+
+      <button class="btn block" id="startBtn" disabled>Choose a language first</button>
+      <p class="muted" id="playHint"></p>
+    </div>
+
+    <div class="card" id="meterCard">
+      <span class="label">This session</span>
+      <div class="meters">
+        <div class="meter"><span class="v" id="mData">0.0 MB</span><span class="k">Data used</span></div>
+        <div class="meter"><span class="v" id="mRate">0 MB/hr</span><span class="k">At this rate</span></div>
+        <div class="meter"><span class="v" id="mBuffer">0.0 s</span><span class="k">Buffered</span></div>
+        <div class="meter"><span class="v" id="mSegs">0</span><span class="k">Sentences</span></div>
+      </div>
+      <p class="muted">Audio only. A Zoom video call uses roughly 500 MB an hour, so on a weak connection you can turn the video off entirely and still follow the whole training here.</p>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <span class="label">Captions</span>
+        <span class="spacer" style="flex:1"></span>
+        <button class="btn ghost" id="origToggle" aria-pressed="false" style="padding:5px 11px;font-size:.8rem">Show original</button>
+        <button class="btn ghost" id="shareBtn" style="padding:5px 11px;font-size:.8rem">Share link</button>
+      </div>
+      <p class="muted" id="shareNote" style="font-size:.78rem"></p>
+      <div class="captions" id="captions">
+        <p class="muted">Captions appear here as the trainer speaks. They keep working even if the audio stutters.</p>
+      </div>
+    </div>
+
+    <div class="card" id="askCard">
+      <span class="label">Ask the trainer</span>
+      <p class="muted">Type in your own language. The trainer will see it translated and answer out loud.</p>
+      <textarea id="askText" rows="3" maxlength="500" placeholder="Type your question here"
+        style="font:inherit;width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical"></textarea>
+      <input type="text" id="askName" maxlength="40" placeholder="Your name (optional)">
+      <button class="btn block" id="askSend">Send question</button>
+      <p class="muted" id="askNote"></p>
+      <div class="rows" id="askSent"></div>
+    </div>
+
+    <p class="notice" id="aiNotice">This audio is translated automatically by AI as the trainer speaks. The trainer's original words are the authoritative version. Dosages and product names are checked before each sentence is spoken.</p>
+  </section>
+
+  <!-- ================= RECORDINGS ================= -->
+  <section id="paneRec" role="tabpanel" aria-labelledby="tabRec" class="hidden">
+
+    <div id="recList">
+      <div class="card"><p class="muted">Loading past trainings…</p></div>
+    </div>
+
+    <div id="recDetail" class="hidden">
+      <button class="btn ghost" id="backBtn" style="margin-bottom:12px">&larr; All trainings</button>
+
+      <div class="card">
+        <div>
+          <h1 id="recTitle">Training</h1>
+          <p class="muted" id="recMeta"></p>
+        </div>
+
+        <div>
+          <span class="label">Listen in</span>
+          <div class="langgrid" id="recLangGrid" style="margin-top:8px"></div>
+        </div>
+
+        <audio id="recAudio" controls preload="metadata"></audio>
+        <p class="muted" id="recAudioNote"></p>
+      </div>
+
+      <div class="card">
+        <span class="label">Transcript - tap any line to jump</span>
+        <div class="transcript" id="recTranscript"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="/listen.js" type="module"></script>
+</body>
+</html>

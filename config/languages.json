@@ -1,0 +1,81 @@
+{
+  "source": {
+    "primary": "hi-IN",
+    "candidates": ["hi-IN", "en-IN"],
+    "note": "Trainers speak Hinglish. Recognition runs on the primary locale; Azure handles English loan-words inside Hindi far better than switching locales mid-sentence."
+  },
+
+  "channels": [
+    {
+      "code": "hi",
+      "locale": "hi-IN",
+      "name": "Hindi",
+      "native": "हिन्दी",
+      "mode": "original",
+      "voice": null,
+      "note": "Trainer's own voice, passed through untouched. Costs nothing to run."
+    },
+    {
+      "code": "en",
+      "locale": "en-IN",
+      "name": "English",
+      "native": "English",
+      "mode": "translate",
+      "voice": "en-IN-NeerjaNeural",
+      "voiceAlt": "en-IN-PrabhatNeural",
+      "azureTranslateCode": "en",
+      "note": "A real translation channel, not a passthrough - the trainer speaks Hindi, so English listeners need Hindi to English."
+    },
+    {
+      "code": "te",
+      "locale": "te-IN",
+      "name": "Telugu",
+      "native": "తెలుగు",
+      "mode": "translate",
+      "voice": "te-IN-ShrutiNeural",
+      "voiceAlt": "te-IN-MohanNeural",
+      "azureTranslateCode": "te"
+    },
+    {
+      "code": "kn",
+      "locale": "kn-IN",
+      "name": "Kannada",
+      "native": "ಕನ್ನಡ",
+      "mode": "translate",
+      "voice": "kn-IN-SapnaNeural",
+      "voiceAlt": "kn-IN-GaganNeural",
+      "azureTranslateCode": "kn"
+    },
+    {
+      "code": "or",
+      "locale": "or-IN",
+      "name": "Odia",
+      "native": "ଓଡ଼ିଆ",
+      "mode": "translate",
+      "voice": "or-IN-SubhasiniNeural",
+      "voiceAlt": "or-IN-SukantNeural",
+      "azureTranslateCode": "or",
+      "note": "Weakest link across every vendor. Bake off against AI4Bharat IndicTrans2 before committing."
+    },
+    {
+      "code": "bn",
+      "locale": "bn-IN",
+      "name": "Bengali",
+      "native": "বাংলা",
+      "mode": "translate",
+      "voice": "bn-IN-TanishaaNeural",
+      "voiceAlt": "bn-IN-BashkarNeural",
+      "azureTranslateCode": "bn"
+    },
+    {
+      "code": "ta",
+      "locale": "ta-IN",
+      "name": "Tamil",
+      "native": "தமிழ்",
+      "mode": "translate",
+      "voice": "ta-IN-PallaviNeural",
+      "voiceAlt": "ta-IN-ValluvarNeural",
+      "azureTranslateCode": "ta"
+    }
+  ]
+}

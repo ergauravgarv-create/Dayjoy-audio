@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0D8B6F">
+<title>Dayjoy Trainer Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari&display=swap">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner wide">
+    <span class="brand"><span class="dot"></span>Trainer Console</span>
+    <span class="spacer"></span>
+    <span class="badge" id="liveBadge">Offline</span>
+  </div>
+</header>
+
+<main class="wrap wide">
+
+  <div class="card">
+    <span class="label">Session</span>
+    <input type="text" id="titleInput" placeholder="Training title, e.g. Super Richberries - Product Training">
+    <div class="grid2">
+      <button class="btn" id="goLive">Start training</button>
+      <button class="btn danger" id="endSession" disabled>End &amp; save recording</button>
+    </div>
+    <p class="muted" id="micNote">Your microphone is captured in this browser. No meeting platform is involved, and nothing leaves this server except for translation. Do not play a translated channel on this computer while presenting — it would be picked up and translated again.</p>
+  </div>
+
+  <div class="card">
+    <span class="label">Microphone</span>
+    <div class="grid2">
+      <div>
+        <select id="micSelect" style="width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit"></select>
+      </div>
+      <div>
+        <div style="height:10px;background:var(--surface-2);border-radius:5px;overflow:hidden;border:1px solid var(--line)">
+          <div id="levelBar" style="height:100%;width:0%;background:var(--green);transition:width .08s"></div>
+        </div>
+        <p class="muted" style="margin-top:6px" id="levelNote">Not capturing</p>
+      </div>
+    </div>
+    <div class="meters">
+      <div class="meter"><span class="v" id="aiState">-</span><span class="k">Reaching server</span></div>
+      <div class="meter"><span class="v" id="aiRate">0.0</span><span class="k">kB/s in<br>expect 31.2</span></div>
+      <div class="meter"><span class="v" id="aiLevel">0.000</span><span class="k">Level</span></div>
+      <div class="meter"><span class="v" id="aiSeconds">0.0s</span><span class="k">Audio sent</span></div>
+    </div>
+    <p class="muted" id="aiNote">If "Reaching server" stays red while the level bar moves, the microphone is working but the connection is not - nothing downstream will run.</p>
+  </div>
+
+  <div class="card">
+    <span class="label">Slide alignment</span>
+    <p class="muted">Zoom's video is a few seconds behind your voice, and the translated audio is faster than Zoom. Push this until listeners hear each point as its slide appears.</p>
+    <input type="range" id="alignRange" min="0" max="8000" step="250" value="0">
+    <p class="mono" id="alignValue">Hold translated audio back by 0.0 s</p>
+  </div>
+
+  <div class="card">
+    <span class="label">What the system is hearing</span>
+    <div class="captions" id="sourceFeed" style="max-height:220px">
+      <p class="muted">Recognised speech appears here. If this is wrong, everything downstream will be wrong too.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <span class="label">Questions from distributors</span>
+      <span class="spacer" style="flex:1"></span>
+      <span class="badge" id="qCount">None yet</span>
+      <button class="btn ghost" id="qToggleAnswered" aria-pressed="false" style="padding:5px 11px;font-size:.8rem">Show answered</button>
+    </div>
+    <div class="rows" id="questions">
+      <p class="muted">Distributors type questions in their own language. They appear here translated, for you to answer out loud — your answer goes back out in every language automatically.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="label">Channels</span>
+    <div style="overflow-x:auto">
+      <table class="data" id="channelTable">
+        <thead>
+          <tr>
+            <th>Language</th><th class="num">Listening</th><th class="num">Sentences</th>
+            <th class="num">Behind</th><th class="num">Rate</th><th class="num">Flagged</th><th class="num">Dropped</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="label">Needs your attention</span>
+    <div class="rows" id="incidents">
+      <p class="muted">Anything the system refused to speak - an unclear dosage, a claim that drifted - shows up here so you can repeat it.</p>
+    </div>
+  </div>
+
+</main>
+
+<script src="/trainer.js" type="module"></script>
+</body>
+</html>

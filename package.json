@@ -1,0 +1,27 @@
+{
+  "name": "dayjoy-audio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dayjoy live multilingual training audio - Hindi/English in, Telugu / Kannada / Odia / Bengali / Tamil / English out.",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test",
+    "preflight": "node scripts/preflight.js",
+    "review:sheet": "node scripts/review-sheet.js",
+    "review:apply": "node scripts/review-apply.js",
+    "compliance:report": "node scripts/compliance-report.js",
+    "check": "node --check src/server.js && node --check src/pipeline.js && echo syntax-ok"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ws": "^8.18.0"
+  },
+  "optionalDependencies": {
+    "microsoft-cognitiveservices-speech-sdk": "^1.40.0"
+  }
+}
